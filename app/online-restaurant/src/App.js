@@ -1,10 +1,10 @@
 import Navbar from './Components/Navbar.js';
 import './App.css';
-import HomeScreen from './screens/HomeScreen';
-import CartScreen from './screens/CartScreen.js';
-import LoginScreen from './screens/LoginScreen.js';
-import OrdersScreen from './screens/OrdersScreen.js';
-import RegisterScreen from './screens/RegisterScreen.js';
+import HomeScreen from './Screens/HomeScreen';
+import CartScreen from './Screens/CartScreen.js';
+import LoginScreen from './Screens/LoginScreen.js';
+import OrdersScreen from './Screens/OrdersScreen.js';
+import RegisterScreen from './Screens/RegisterScreen.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
