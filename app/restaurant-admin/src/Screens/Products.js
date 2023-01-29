@@ -102,8 +102,8 @@ function Products() {
                   src={pizza.image}
                   title={pizza.name}
                   description={pizza.description}
-                  button1="View more"
-                  button2="Update"
+                  button1="View"
+                  button2="Edit"
                   button3="Delete"
                   onClick3={(id) => showAlert(pizza._id, pizza.name)}
                 />

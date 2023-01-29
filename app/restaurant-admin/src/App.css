@@ -38,6 +38,10 @@ h1 {
   color: white !important;
 }
 
+.outlined{
+  width: 7rem !important;
+}
+
 .outlined:hover {
   color:white !important;
 }
