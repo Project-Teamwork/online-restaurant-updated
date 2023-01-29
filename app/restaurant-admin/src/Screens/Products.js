@@ -8,7 +8,7 @@ import ProductCard from "../Components/Card";
 import DeleteConfirm from "../Components/DeleteConfirm";
 import Paginate from "../Components/PaginationBootstrap";
 
-  //Display Products variables
+//Display Products variables
 function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -108,14 +108,13 @@ function Products() {
               </div>
             );
           })}
-          
         </ContainerFluid>
         <Paginate
           totalPosts={data.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
-        />      
+        />
       </ContainerFluid>
     </div>
   );
