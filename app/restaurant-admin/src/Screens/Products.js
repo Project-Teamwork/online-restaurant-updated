@@ -6,16 +6,26 @@ import TopNavbar from "../Components/Navbar";
 import Loader from "../Components/Loader.js";
 import ProductCard from "../Components/Card";
 import DeleteConfirm from "../Components/DeleteConfirm";
+import Paginate from "../Components/PaginationBootstrap";
 
+  //Display Products variables
 function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // Alert Variables
   const [show, setShow] = useState(false);
   const [productId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // Pagination variables
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(3);
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
   const getAllPizzas = async () => {
     setLoading(true);
@@ -37,6 +47,7 @@ function Products() {
     return <Loader />;
   }
 
+  // Functions used in current Screen
   const createNewItem = () => {
     console.table(data);
     alert("created");
@@ -58,6 +69,7 @@ function Products() {
     handleShow();
   };
 
+  // Display current Screen
   return (
     <div className="d-flex">
       <SideNavbar />
@@ -77,10 +89,10 @@ function Products() {
           onClick2={() => deleteItem()}
         />
         <ContainerFluid>
-          <p className="text-start ps-4 mt-2 mb-4 display-6">
+          <p className="text-start ps-4 mt-2 mb-4 fs-3 overflow-auto">
             Total pizzas: {data.length}
           </p>
-          {data.map((pizza, index) => {
+          {currentPosts.map((pizza, index) => {
             return (
               <div>
                 <ProductCard
@@ -96,7 +108,14 @@ function Products() {
               </div>
             );
           })}
+          
         </ContainerFluid>
+        <Paginate
+          totalPosts={data.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />      
       </ContainerFluid>
     </div>
   );

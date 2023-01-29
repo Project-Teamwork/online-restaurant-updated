@@ -7,7 +7,7 @@ function DeleteConfirm(props) {
       show={props.showAlert}
       onHide={props.handleClose}
       variant="danger"
-      className="shadow-lg"
+      className="shadow-lg alert text-black"
       style={{
         width: "40vw",
         margin: "auto",
@@ -15,17 +15,16 @@ function DeleteConfirm(props) {
         right: "25vw",
         zIndex: "1",
         border: "3vw solid white",
-        color: "black",
       }}
     >
       <Alert.Heading>Please confirm</Alert.Heading>
       <p>Are you sure you want to delete "{props.name}" item?</p>
       <hr />
       <div className="d-flex justify-content-end">
-        <Button
+        <Button 
           onClick={props.onClick1}
-          variant="outline-dark"
-          className="me-3 px-4"
+          variant="outline-secondary"
+          className="me-3 px-4 text-black"
         >
           {props.button1}
         </Button>
