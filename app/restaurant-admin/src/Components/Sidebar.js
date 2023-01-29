@@ -6,7 +6,7 @@ function SideNavbar() {
     <div className="w-25">
       <Nav
         defaultActiveKey="/home"
-        className="flex-column shadow-lg  vh-100 p-3 mb-5 bg-white rounded"
+        className="flex-column shadow-lg vh-100 p-3 mb-5 bg-white rounded"
       >
         <Link className="navbar-brand" to="/">
           ONLINE-PIZZA <br></br>Admin Dashboard
