@@ -1,17 +1,17 @@
 import "./App.css";
-// import SideNavbar from "./Components/SideNavbar";
-import Products from "./Screens/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Products from "./Screens/Products";
+import Product from "./Screens/Product";
+
 
 function App() {
   return (
     <div className="App">
       <Router>
-       {/* <SideNavbar/> */}
         <Routes>
           <Route path="/home" element={<Products />} />
-          {/* <Route path="/cart" element={<CartScreen />} />
-          <Route exact path="/login" element={<LoginScreen />} />
+          <Route path="/create" element={<Product />} />
+          {/* <Route exact path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/orders" element={<OrdersScreen />} /> */}
         </Routes>

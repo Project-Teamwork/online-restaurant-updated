@@ -7,7 +7,7 @@ function TopNavbar(props) {
  
   return (
     <Container>
-      <Navbar expand="lg" variant="light" bg="white" className="shadow-lg rounded m-3">
+      <Navbar expand="lg" variant="light" bg="white" className="shadow rounded m-3">
         <Container>
           <Navbar.Brand href={props.href}>{props.children}</Navbar.Brand>
           <Button onClick={props.onClick} className="bg-success px-5 py-2">{props.action}</Button>{' '}

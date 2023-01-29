@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom/dist";
 import SideNavbar from "../Components/Sidebar";
 import ContainerFluid from "../Components/Container";
 import TopNavbar from "../Components/Navbar";
@@ -8,10 +9,11 @@ import ProductCard from "../Components/Card";
 import DeleteConfirm from "../Components/DeleteConfirm";
 import Paginate from "../Components/PaginationBootstrap";
 
-//Display Products variables
+
 function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
 
   // Alert Variables
   const [show, setShow] = useState(false);
@@ -50,7 +52,7 @@ function Products() {
   // Functions used in current Screen
   const createNewItem = () => {
     console.table(data);
-    alert("created");
+    navigate('/create')
   };
 
   const deleteItem = () => {

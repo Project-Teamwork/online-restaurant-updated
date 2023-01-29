@@ -5,7 +5,7 @@ function ProductCard(props) {
   return (
     <Card
       style={{ width: "60vw" }}
-      className="flex-row align-items-center justify-content-around my-2 mx-auto"
+      className="flex-row align-items-center justify-content-around my-3 mx-auto shadow"
     >
       <div>
         <Card.Img style={{ width: "10vw", margin: "1rem" }} src={props.src} />
