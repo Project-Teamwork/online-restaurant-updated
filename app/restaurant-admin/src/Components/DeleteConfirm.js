@@ -13,7 +13,7 @@ function DeleteConfirm(props) {
         margin: "auto",
         position: "fixed",
         right: "25vw",
-        zIndex: "1",
+        zIndex: "100",
         border: "3vw solid white",
       }}
     >

@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Products from "./Screens/Products";
-import Product from "./Screens/Product";
+import Product from "./Screens/ProductSingle";
 
 
 function App() {

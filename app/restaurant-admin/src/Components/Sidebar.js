@@ -1,5 +1,6 @@
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import { MdFastfood, MdManageAccounts, MdSupervisorAccount, MdCreditScore } from "react-icons/md";
 
 function SideNavbar(props) {
   return (
@@ -13,10 +14,10 @@ function SideNavbar(props) {
           ONLINE-PIZZA <br></br>Admin Dashboard
         </Link>
         <div className="mt-5 fs-5">
-          <Nav.Link href="/home">Products</Nav.Link>
-          <Nav.Link eventKey="link-1" >Orders</Nav.Link>
-          <Nav.Link eventKey="link-2" >Users</Nav.Link>
-          <Nav.Link eventKey="link-3" disabled>Profile</Nav.Link>
+          <Nav.Link href="/home"><MdFastfood/>  Products</Nav.Link>
+          <Nav.Link eventKey="link-1" ><MdCreditScore/> Orders</Nav.Link>
+          <Nav.Link eventKey="link-2" ><MdSupervisorAccount/> Users</Nav.Link>
+          <Nav.Link eventKey="link-3" disabled><MdManageAccounts/> Profile</Nav.Link>
       
         </div>
       </Nav>
