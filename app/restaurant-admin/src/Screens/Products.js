@@ -35,6 +35,14 @@ function Products() {
     alert("created");
   };
 
+  const deleteItem = (id) => {
+    try {
+      axios.delete("http://localhost:5000/api/pizzas/" + id);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="d-flex ">
       <SideNavbar />
@@ -45,17 +53,20 @@ function Products() {
           onClick={createNewItem}
           action="Create"
         />
-        <ContainerFluid >
-          <p className="text-start ps-4 mt-2 mb-4 display-6">Total pizzas: {data.length}</p>
+        <ContainerFluid>
+          <p className="text-start ps-4 mt-2 mb-4 display-6">
+            Total pizzas: {data.length}
+          </p>
           {data.map((pizza, index) => {
             return (
-              <ProductCard key={index}
+              <ProductCard
+                key={index}
                 src={pizza.image}
                 title={pizza.name}
                 description={pizza.description}
                 button1="View more"
                 button2="Update"
-                button3="Delete"
+                button3="Delete" onClick3={() => deleteItem(pizza._id)}
               />
             );
           })}
