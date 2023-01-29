@@ -11,10 +11,11 @@ function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
-  const [productId, setProductId] = useState("")
+  const [productId, setProductId] = useState("");
+  const [productName, setProductName] = useState("");
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   const getAllPizzas = async () => {
     setLoading(true);
@@ -51,13 +52,14 @@ function Products() {
     }
   };
 
-  const showAlert = (id) => {
-    setProductId(id)
+  const showAlert = (id, name) => {
+    setProductId(id);
+    setProductName(name);
     handleShow();
-  }
+  };
 
   return (
-    <div className="d-flex h-100vh">
+    <div className="d-flex">
       <SideNavbar />
       <ContainerFluid>
         <TopNavbar
@@ -66,33 +68,36 @@ function Products() {
           onClick={createNewItem}
           action="Create"
         />
+        <DeleteConfirm
+          showAlert={show}
+          name={productName}
+          button1="Cancel"
+          onClick1={handleClose}
+          button2="Delete"
+          onClick2={() => deleteItem()}
+        />
         <ContainerFluid>
           <p className="text-start ps-4 mt-2 mb-4 display-6">
             Total pizzas: {data.length}
           </p>
           {data.map((pizza, index) => {
             return (
-              <ProductCard
-                key={index}
-                src={pizza.image}
-                title={pizza.name}
-                description={pizza.description}
-                button1="View more"
-                button2="Update"
-                button3="Delete" onClick3={(id) => showAlert(pizza._id) }
-              />
+              <div>
+                <ProductCard
+                  key={index}
+                  src={pizza.image}
+                  title={pizza.name}
+                  description={pizza.description}
+                  button1="View more"
+                  button2="Update"
+                  button3="Delete"
+                  onClick3={(id) => showAlert(pizza._id, pizza.name)}
+                />
+              </div>
             );
           })}
         </ContainerFluid>
       </ContainerFluid>
-      <DeleteConfirm 
-  showAlert={show} 
-  // handleClose = {handleClose} 
-  button1 = "Cancel"
-  onClick1 = {handleClose} 
-button2="Delete"
-onClick2 = {() => deleteItem()}
-/>
     </div>
   );
 }
