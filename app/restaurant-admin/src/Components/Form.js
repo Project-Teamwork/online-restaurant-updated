@@ -9,7 +9,7 @@ function BasicForm() {
       <Form.Group className="mb-1" controlId="formBasicName">
         <FloatingLabel
           controlId="floatingInput"
-          label="Email address"
+          label="Name"
           className="mb-3"
         >
           <Form.Control type="text" placeholder="Enter product name" />
