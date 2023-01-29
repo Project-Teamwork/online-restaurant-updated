@@ -5,10 +5,16 @@ import ContainerFluid from "../Components/Container";
 import TopNavbar from "../Components/Navbar";
 import Loader from "../Components/Loader.js";
 import ProductCard from "../Components/Card";
+import DeleteConfirm from "../Components/DeleteConfirm";
 
 function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
+  const [productId, setProductId] = useState("")
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const getAllPizzas = async () => {
     setLoading(true);
@@ -35,16 +41,23 @@ function Products() {
     alert("created");
   };
 
-  const deleteItem = (id) => {
+  const deleteItem = () => {
     try {
+      let id = productId;
       axios.delete("http://localhost:5000/api/pizzas/" + id);
+      window.location.reload(true);
     } catch (error) {
       console.error(error);
     }
   };
 
+  const showAlert = (id) => {
+    setProductId(id)
+    handleShow();
+  }
+
   return (
-    <div className="d-flex ">
+    <div className="d-flex h-100vh">
       <SideNavbar />
       <ContainerFluid>
         <TopNavbar
@@ -66,12 +79,20 @@ function Products() {
                 description={pizza.description}
                 button1="View more"
                 button2="Update"
-                button3="Delete" onClick3={() => deleteItem(pizza._id)}
+                button3="Delete" onClick3={(id) => showAlert(pizza._id) }
               />
             );
           })}
         </ContainerFluid>
       </ContainerFluid>
+      <DeleteConfirm 
+  showAlert={show} 
+  // handleClose = {handleClose} 
+  button1 = "Cancel"
+  onClick1 = {handleClose} 
+button2="Delete"
+onClick2 = {() => deleteItem()}
+/>
     </div>
   );
 }

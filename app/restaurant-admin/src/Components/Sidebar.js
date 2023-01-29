@@ -11,7 +11,7 @@ function SideNavbar() {
         <Link className="navbar-brand" to="/">
           ONLINE-PIZZA <br></br>Admin Dashboard
         </Link>
-        <div className="mt-3">
+        <div className="mt-5 fs-5">
           <Nav.Link href="/home">Products</Nav.Link>
           <Nav.Link eventKey="link-1">Orders</Nav.Link>
           <Nav.Link eventKey="link-2">Users</Nav.Link>
