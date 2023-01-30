@@ -84,6 +84,7 @@ function Products() {
         />
         <DeleteConfirm
           showAlert={show}
+          onClose={handleClose}
           name={productName}
           button1="Cancel"
           onClick1={handleClose}

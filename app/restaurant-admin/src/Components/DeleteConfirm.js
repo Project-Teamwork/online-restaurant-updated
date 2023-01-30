@@ -5,7 +5,7 @@ function DeleteConfirm(props) {
   return (
     <Alert
       show={props.showAlert}
-      onHide={props.handleClose}
+      onClose={props.onClose}
       variant="danger"
       className="shadow-lg alert text-black"
       style={{
@@ -16,6 +16,7 @@ function DeleteConfirm(props) {
         zIndex: "100",
         border: "3vw solid white",
       }}
+      dismissible
     >
       <Alert.Heading>Please confirm</Alert.Heading>
       <p>Are you sure you want to delete "{props.name}" item?</p>
@@ -24,7 +25,7 @@ function DeleteConfirm(props) {
         <Button 
           onClick={props.onClick1}
           variant="outline-secondary"
-          className="me-3 px-4 text-black"
+          className="me-3 px-4 text-black outlined"
         >
           {props.button1}
         </Button>
