@@ -6,6 +6,7 @@ function ProductCard(props) {
     <Card
       style={{ width: "60vw" }}
       className="flex-row align-items-center justify-content-around my-3 mx-auto shadow"
+      onClick={props.onClick}
     >
       <div>
         <Card.Img style={{ width: "10vw", margin: "1rem" }} src={props.src} />

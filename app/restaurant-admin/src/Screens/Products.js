@@ -8,12 +8,13 @@ import Loader from "../Components/Loader.js";
 import ProductCard from "../Components/Card";
 import DeleteConfirm from "../Components/DeleteConfirm";
 import Paginate from "../Components/PaginationBootstrap";
-
+import ViewPizzaModal from "../Components/Pizza";
+import { Modal } from "react-bootstrap";
 
 function Products() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // Alert Variables
   const [show, setShow] = useState(false);
@@ -21,6 +22,11 @@ function Products() {
   const [productName, setProductName] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // Modal Variables
+  const [modalShow, setModalShow] = useState(false);
+  const handleModalClose = () => setModalShow(false);
+  const handleModalShow = () => setModalShow(true);
 
   // Pagination variables
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,7 +58,7 @@ function Products() {
   // Functions used in current Screen
   const createNewItem = () => {
     console.table(data);
-    navigate('/create')
+    navigate("/create");
   };
 
   const deleteItem = () => {
@@ -99,6 +105,7 @@ function Products() {
             return (
               <div>
                 <ProductCard
+                  onClick={handleModalShow}
                   key={index}
                   src={pizza.image}
                   title={pizza.name}
@@ -107,6 +114,11 @@ function Products() {
                   button2="Edit"
                   button3="Delete"
                   onClick3={(id) => showAlert(pizza._id, pizza.name)}
+                />
+                <ViewPizzaModal
+                  modalShow={modalShow}
+                  handleModalClose={handleModalClose}
+                  pizza={pizza}
                 />
               </div>
             );
