@@ -60,9 +60,10 @@ select {
 }
 
 .modalImage {
-  height: 370px !important;
-  width: 370px !important;
+  height: 10rem !important;
+  width: 10rem !important;
 }
+
 
 .orderTitle {
   font-size: 35px;
@@ -92,6 +93,10 @@ i {
 
 table {
   table-layout: fixed;
+}
+
+li {
+  list-style: none;
 }
 
 
